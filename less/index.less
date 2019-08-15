@@ -50,10 +50,125 @@ table {
 
 /* Set every element's box-sizing to border-box */
 * {
-    box-sizing: border-box;
+	box-sizing: border-box;
+	max-width:100%;
 }
 
 html, body {
-    height: 100%;
+	height: 100%;
 }
 
+/* Things that affect the whole page */
+
+h1{
+	font-size:4rem;
+	margin:10px;
+}
+h2{
+	font-size:3rem;
+	margin:10px;
+}
+h3{
+	font-size:2rem;
+	margin:10px;
+}
+body{
+	.flexcolumn();
+	background: url("../img/arizona.jpg");
+	.parallax();
+}
+
+/* Variables and mixins */
+
+@bordercolor:grey;
+
+.flexcolumn(){
+	display:flex;
+	flex-direction:column;
+	align-items:center;
+}
+.flexrow(){
+	display:flex;
+	flex-direction:row;
+	justify-content:center;
+}
+.parallax(){
+	background-attachment:fixed;
+	background-position:bottom;
+	background-repeat:no-repeat;
+	background-size:cover;
+}
+
+/* Header content */
+
+header{
+	text-shadow:0 0 10px #fff;
+	width:80%;
+	background: url("../img/cowboy.jpg");
+	.parallax();
+	margin:20px;
+	border:5px solid @bordercolor;
+	.flexcolumn();
+	@media screen and (max-width: 500px){
+		width:100%;
+	}
+	nav{
+		margin:10px;
+		width:50%;
+		display:flex;
+		justify-content:space-around;
+		@media screen and (max-width: 500px){
+			margin:0px;
+			width:100%;
+			.flexrow();
+		}
+		a{
+			text-decoration:none;
+			font-size:1.25rem;
+			&:hover{
+				padding:50px;
+				margin:-50px;
+				background:url("../img/bang.png");
+				background-position:center;
+				background-repeat:no-repeat;
+				@media screen and (max-width: 800px){
+					padding:0px;
+					margin:0px;
+					background:none;
+				}
+			}
+		}
+	}
+	p{
+		font-size:1.5rem;
+	}
+}
+
+/* Main content */
+
+.main{
+	width:50%;
+	border:5px solid @bordercolor;
+	background:url("../img/bigiron.jpeg");
+	.parallax();
+	.flexrow();
+	@media screen and (max-width: 1500px){
+		.flexcolumn();
+		width:80%
+	}
+	div{
+		border:5px solid @bordercolor;
+		.flexcolumn();
+		margin:20px;
+		ul{
+			li{
+				text-align:center;
+			}
+		}
+	}
+}
+
+/* Footer content */
+footer{
+	.flexcolumn();
+}
